@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.eventpang.dao.EventDao">
+  
+  <insert id="insert">
+    <selectKey keyProperty="evt_num" resultType="int" order="BEFORE">
+      SELECT event_seq.NEXTVAL FROM dual
+    </selectKey>
+    
+    INSERT INTO tbl_event (
+      EVT_NUM, EVT_USERID, EVT_HOST, EVT_LINK, EVT_TITLE, EVT_CATEGORY,
+      EVT_WRITED_TIME, EVT_START_TIME, EVT_END_TIME,
+      EVT_WINNING_TIME, EVT_WINNER, EVT_REWARD,
+      EVT_RECOMMEND, EVT_BODY, EVT_TAGS, EVT_VIEWS)
+    VALUES (
+      #{evt_num}, #{evt_userid}, #{evt_host}, #{evt_link}, #{evt_title}, #{evt_category},
+      #{evt_writed_time}, #{evt_start_time}, #{evt_end_time},
+      #{evt_winning_time}, #{evt_winner}, #{evt_reward},
+      #{evt_recommend}, #{evt_body}, #{evt_tags}, #{evt_views})
+  </insert>
+
+  <update id="update">
+    UPDATE tbl_event SET
+      EVT_USERID = #{evt_userid},
+      EVT_HOST = #{evt_host},
+      EVT_LINK = #{evt_link},
+      EVT_TITLE = #{evt_title},
+      EVT_CATEGORY = #{evt_category},
+      EVT_WRITED_TIME = #{evt_writed_time},
+      EVT_START_TIME = #{evt_start_time},
+      EVT_END_TIME = #{evt_end_time},
+      EVT_WINNING_TIME = #{evt_winning_time},
+      EVT_WINNER = #{evt_winner},
+      EVT_REWARD = #{evt_reward},
+      EVT_RECOMMEND = #{evt_recommend},
+      EVT_BODY = #{evt_body},
+      EVT_TAGS = #{evt_tags},
+      EVT_VIEWS = #{evt_views}
+    WHERE EVT_NUM = #{evt_num}
+  </update>
+
+</mapper>

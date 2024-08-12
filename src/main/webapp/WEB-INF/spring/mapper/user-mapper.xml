@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.eventpang.dao.UserDao">
+	<insert id="insert">
+		INSERT INTO tbl_user (USER_ID, USER_NICK, USER_PASSWORD, USER_EMAIL,
+		USER_BIRTH, USER_TEL, USER_GENDER, USER_ROLE)
+		VALUES (#{user_id}, #{user_nick}, #{user_password},
+		#{user_email}, #{user_birth}, #{user_tel}, #{user_gender}
+		, #{user_role})
+	</insert>
+	<update id="update">
+		UPDATE tbl_user SET
+		USER_NICK = #{user_nick},
+		USER_PASSWORD = #{user_password},
+		USER_EMAIL = #{user_email},
+		USER_BIRTH = #{user_birth},
+		USER_TEL = #{user_tel},
+		USER_GENDER = #{user_gender},
+		USER_ROLE = #{user_role}
+		WHERE user_id = #{user_id}
+	</update>
+</mapper> 

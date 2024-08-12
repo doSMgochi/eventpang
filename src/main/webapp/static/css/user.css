@@ -1,0 +1,238 @@
+@charset "UTF-8";
+body.user {
+  background: none;
+  margin: 0;
+  font-family: "Hahmlet", sans-serif;
+  text-align: center;
+  overflow: auto;
+  background-image: url("../images/board-background.png");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .speech-bubble {
+    position: relative;
+    background: white;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 130px;
+    padding: 30px 5px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    border-radius: 45px;
+    box-shadow: 0 0 8px 4px #ddd;
+  }
+
+  .speech-bubble:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 31px solid transparent;
+    border-top-color: white;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -15.5px;
+    margin-bottom: -31px;
+  }
+
+  .speech-bubble:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 31px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -18px;
+    margin-bottom: -34px;
+    z-index: -1;
+  }
+
+  nav {
+    display: block;
+
+    ul.top-nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 5px;
+      border-radius: 0;
+      color: black;
+      margin: 0;
+      img {
+        width: 20vw;
+        height: auto;
+      }
+
+      li:nth-of-type(1) {
+        flex: 0 0 33%;
+      }
+      li:nth-of-type(2) {
+        flex: 0 0 33%;
+      }
+      li:nth-of-type(3) {
+        text-align: right;
+        margin-right: 30px;
+        flex: 0 0 16%;
+      }
+      li:nth-of-type(4) {
+        margin-right: 30px;
+      }
+    }
+  }
+  hr.hr-1 {
+    border: 0;
+    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  section.login,
+  section.join {
+    margin: auto;
+    width: 30%;
+
+    form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      input,
+      button {
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+        max-width: 300px;
+        outline: none;
+        border: 2px solid #ddd;
+        box-shadow: 0 0 5px 2px #ddd;
+        border-radius: 25px;
+      }
+
+      input[type="submit"],
+      input[type="button"] {
+        cursor: pointer;
+        margin-bottom: 30px;
+        background-color: pink;
+      }
+
+      input[type="submit"]:hover,
+      input[type="button"]:hover {
+        background-color: rgb(255, 143, 162);
+        transition: 1s;
+      }
+
+      input[type="radio"] {
+        width: auto;
+      }
+
+      input[type="date"] {
+        text-align: center;
+      }
+
+      input::placeholder {
+        text-align: center;
+      }
+
+      h4 {
+        color: red;
+        font-weight: normal;
+      }
+
+      span {
+        display: none;
+        padding: 10px 16px;
+        margin: 8px auto;
+        width: 85%;
+        color: red;
+      }
+    }
+  }
+}
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group {
+  display: flex;
+}
+
+.radio-group label {
+  flex: 1;
+  text-align: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-radius 0.3s;
+  color: black;
+}
+
+.radio-group label:first-of-type {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.radio-group label:last-of-type {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: pink;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body.user section.login,
+  body.user section.join {
+    width: 90%;
+  }
+
+  body.user ul.top-nav li:nth-of-type(1) {
+    flex: 0 0 0 !important;
+  }
+
+  body.user ul.top-nav li:nth-of-type(2),
+  body.user ul.top-nav li:nth-of-type(3),
+  body.user ul.top-nav li:nth-of-type(4) {
+    flex: 0 0 33% !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.user section.login,
+  body.user section.join {
+    width: 100%;
+  }
+
+  body.user section.login form input,
+  body.user section.join form input,
+  body.user section.login form button,
+  body.user section.join form button {
+    width: 90%;
+    width: 200px;
+  }
+  body.user section.login form input[type="radio"],
+  body.user section.join form input[type="radio"] {
+    width: auto !important;
+  }
+}

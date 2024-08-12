@@ -1,0 +1,386 @@
+@charset "UTF-8";
+
+body.info {
+  background: none;
+  margin: 0;
+  overflow: scroll;
+  font-family: "Hahmlet", sans-serif;
+  text-align: center;
+  background-image: url("../images/board-background.png");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  display: block;
+}
+
+ul.top-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  border-radius: 0;
+  color: black;
+  margin: 0;
+}
+
+ul.top-nav img {
+  width: 20vw;
+  height: auto;
+}
+
+ul.top-nav li:nth-of-type(1) {
+  flex: 0 0 33%;
+}
+
+ul.top-nav li:nth-of-type(2) {
+  flex: 0 0 33%;
+}
+
+ul.top-nav li:nth-of-type(3) {
+  text-align: right;
+  margin-right: 30px;
+  flex: 0 0 16%;
+}
+
+ul.top-nav li:nth-of-type(4) {
+  margin-right: 30px;
+}
+
+hr.hr-1 {
+  border: 0;
+  height: 1px;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+div.margin {
+  margin-bottom: 30px;
+}
+
+section.items {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 3%;
+  width: calc(3 * 30% + 2 * 30px);
+  max-width: 45%;
+}
+.item {
+  flex: 1 0 30%;
+  max-width: 270px;
+  height: 300px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 15px 3px rgb(255, 231, 231);
+  margin-bottom: 30px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.tag-library {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.tag-library button {
+  outline: none;
+}
+
+.tag-library button.btn {
+  font-family: "Poor Story", sans-serif;
+  width: 140px;
+  height: 50px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.tag-library button.tag {
+  transition: all 0.3s ease;
+}
+
+.tag-library button.tag:hover {
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+}
+.event-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-header img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.event-header .event-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.event-meta {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+}
+
+.event-detail .label {
+  width: 120px;
+  font-weight: bold;
+  color: #555;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.event-detail .value {
+  color: #333;
+}
+
+.event-actions {
+  margin: 40px 0;
+  display: flex;
+  gap: 15px;
+}
+
+.event-actions button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-event {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.apply-event {
+  background-color: pink;
+  color: #fff;
+}
+
+form.write {
+  width: 50vw;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form.write input,
+form.write select,
+form.write textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 12px 0;
+
+  transition: border-color 0.3s ease;
+}
+
+form.write input[type="submit"],
+#uploadImage {
+  background-color: pink;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+form.write input[type="submit"]:hover,
+#uploadImage:hover {
+  background-color: rgb(255, 143, 162);
+}
+
+#imageFile {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  background-color: pink;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  background-color: rgb(255, 143, 162);
+}
+
+form.write input:focus,
+form.write select:focus,
+form.write textarea:focus {
+  outline: none;
+}
+
+form.write div.half-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+form.write div.half-box select,
+form.write div.half-box input {
+  width: 48%;
+}
+
+form.write div.three-box {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+form.write div.three-box select,
+form.write div.three-box input,
+form.write div.three-box div {
+  width: 30%;
+}
+
+form.write textarea {
+  min-height: 400px;
+}
+
+div.view {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+}
+
+div.view div {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: left;
+}
+
+div.view div:nth-of-type(1) {
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.comment {
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+@media (max-width: 1260px) {
+  section.items {
+    justify-content: center;
+    width: calc(2 * 45% + 1 * 30px);
+    gap: 30px;
+  }
+  .item {
+    flex: 1 0 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  ul.top-nav li:nth-of-type(1) {
+    flex: 0 0 0;
+  }
+  ul.top-nav li:nth-of-type(2),
+  ul.top-nav li:nth-of-type(3),
+  ul.top-nav li:nth-of-type(4) {
+    flex: 0 0 33%;
+    text-align: center;
+    margin: 0;
+  }
+  section.items {
+    justify-content: center;
+    width: calc(2 * 80% + 1 * 10px);
+    gap: 10px;
+  }
+  .item {
+    flex: 1 0 80%;
+    max-width: 80%;
+  }
+
+  .tag-library {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .tag-library button {
+    width: 45%;
+    max-width: 45%;
+  }
+}
