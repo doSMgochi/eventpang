@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const fileInput = document.getElementById("imageFile");
 
-  document.getElementById("uploadImage").addEventListener("click", function () {
+  document.getElementById("uploadImage").addEventListener("click", () => {
     fileInput.click();
   });
 
-  fileInput.addEventListener("change", function () {
+  fileInput.addEventListener("change", () => {
     const file = fileInput.files[0];
 
     if (!file) {

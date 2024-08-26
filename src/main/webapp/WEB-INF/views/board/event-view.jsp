@@ -52,6 +52,7 @@
 	<div>
 		<span>${event.evt_body }</span>
 	</div>
+	<!-- 이미지 나오는거 고장 -->
 	<div class="event-actions">
 		<button class="save-event">이벤트 북마크</button>
 		<button class="apply-event">이벤트 응모하기</button>
