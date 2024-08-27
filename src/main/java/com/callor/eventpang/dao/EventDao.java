@@ -20,7 +20,7 @@ public interface EventDao {
 	@Delete("DELETE FROM tbl_event WHERE evt_num = #{evt_num}")
 	public int deleteByNum(int num);
 
-	public int update(int num);
+	public int update(EventVO event);
 
 	public int insert(EventVO eventVO);
 

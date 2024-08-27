@@ -44,17 +44,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  document
-    .getElementById("event-write")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
+  const pageTypeElement = document.getElementById("page-type");
+  const pageType = pageTypeElement
+    ? pageTypeElement.getAttribute("data-page-type")
+    : null;
 
-      const category = document.getElementById("firstSelect").value;
-      const detailCategory = document.getElementById("secondSelect").value;
+  if (pageType === "modify") {
+    const dateFields = [
+      "evt_writed_time",
+      "evt_start_time",
+      "evt_end_time",
+      "evt_winning_time",
+    ];
 
-      const evtCategory = category + "," + detailCategory;
-      document.getElementById("evt_category").value = evtCategory;
-
-      this.submit();
+    dateFields.forEach((fieldName) => {
+      const dateInput = document.querySelector(`input[name='${fieldName}']`);
+      if (dateInput && dateInput.value) {
+        const dateParts = dateInput.value.split("-");
+        dateInput.value = `${dateParts[0].substring(2)}/${dateParts[1]}/${
+          dateParts[2]
+        }`;
+      }
     });
+  }
+
+  document.getElementById("event-write").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const category = document.getElementById("firstSelect").value;
+    const detailCategory = document.getElementById("secondSelect").value;
+
+    const evtCategory = category + "," + detailCategory;
+    document.getElementById("evt_category").value = evtCategory;
+
+    event.target.submit();
+  });
 });

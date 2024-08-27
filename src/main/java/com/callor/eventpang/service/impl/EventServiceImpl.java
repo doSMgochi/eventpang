@@ -26,7 +26,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public int saveEvent(EventVO event) {
-		return eventDao.insert(event); 
+		return eventDao.insert(event);
 	}
 
 	@Override
@@ -36,68 +36,68 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public EventVO findByNum(int evt_num) {
-	     eventDao.updateViews(evt_num);
+		eventDao.updateViews(evt_num);
 		return eventDao.findByNum(evt_num);
 	}
 
 	@Override
 	public int updateEvent(EventVO event) {
-		return 0;
+		return eventDao.update(event);
 	}
 
 	@Override
 	public int deleteEvent(int evt_num) {
-		return 0;
+		return eventDao.deleteByNum(evt_num);
 	}
 
 	@Override
 	public List<EventVO> findEventsByCategory(String category) {
-		List<EventVO> allEvents = eventDao.selectAll(); 
+		List<EventVO> allEvents = eventDao.selectAll();
 		return allEvents.stream().filter(event -> {
 			String[] categories = event.getEvt_category().split(",");
 			return categories[0].equals(category);
 		}).collect(Collectors.toList());
 	}
-	
+
 	@Override
 	public Map<String, String> splitCategory(String category) {
-	    String[] categories = category.split(",", 2);
-	    String mainCategory = categories.length > 0 ? categories[0].trim() : "";
-	    String subCategory = categories.length > 1 ? categories[1].trim() : "";
+		String[] categories = category.split(",", 2);
+		String mainCategory = categories.length > 0 ? categories[0].trim() : "";
+		String subCategory = categories.length > 1 ? categories[1].trim() : "";
 
-	    // 카테고리 매핑
-	    switch (mainCategory) {
-	        case "benefit":
-	            mainCategory = "혜택";
-	            break;
-	        case "big-event":
-	            mainCategory = "대박이벤트";
-	            break;
-	        case "minor-event":
-	            mainCategory = "소소한 이벤트";
-	            break;
-	        case "community":
-	            mainCategory = "커뮤니티";
-	            break;
-	        default:
-	            break;
-	    }
+		// 카테고리 매핑
+		switch (mainCategory) {
+		case "benefit":
+			mainCategory = "혜택";
+			break;
+		case "big-event":
+			mainCategory = "대박이벤트";
+			break;
+		case "minor-event":
+			mainCategory = "소소한 이벤트";
+			break;
+		case "community":
+			mainCategory = "커뮤니티";
+			break;
+		default:
+			break;
+		}
 
-	    Map<String, String> categoryMap = new HashMap<>();
-	    categoryMap.put("mainCategory", mainCategory);
-	    categoryMap.put("subCategory", subCategory);
-	    return categoryMap;
+		Map<String, String> categoryMap = new HashMap<>();
+		categoryMap.put("mainCategory", mainCategory);
+		categoryMap.put("subCategory", subCategory);
+		return categoryMap;
 	}
-	
+
 	@Override
 	public String formatDateTime(Date date) {
-	    SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 E요일", Locale.KOREAN);
-	    return formatter.format(date);
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy년 MM월 dd일 E요일", Locale.KOREAN);
+		return formatter.format(date);
 	}
 
 	@Override
 	public List<EventVO> findBySearch(String search) {
-		List<EventVO> searchEvents = eventDao.findBySearch(search); 
+		List<EventVO> searchEvents = eventDao.findBySearch(search);
 		return searchEvents;
 	}
 
