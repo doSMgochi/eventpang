@@ -35,8 +35,7 @@
 		<!-- 최대 업로드 파일 크기 설정 -->
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
-
-	<bean
+<!-- <bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
@@ -59,6 +58,7 @@
 				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
+	
 	
 </beans>
